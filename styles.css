@@ -21,6 +21,7 @@ user-select: none;
   opacity: 0.5;
   height: 2em;
   padding-top: 0.75em;
+  background-color: white;
 }
 .cardType4{
   text-align: center;
@@ -30,6 +31,7 @@ user-select: none;
   border-left: 1px solid black;
   font-weight: normal;
   opacity: 0.5;
+  background-color: white;
 }
 .sets{
   border-right: 1px solid black;
@@ -69,6 +71,7 @@ user-select: none;
   font-size: 2em;
   font-weight: normal;
   opacity: 0.5;
+  color: white;
 }
 .card{
   border: 1px solid black;
@@ -76,7 +79,7 @@ user-select: none;
 }
 .cardQuality{
   border: 1px solid black;
-
+  background-color: white;
 }
 .mainBody{
   display: flex;
@@ -89,24 +92,25 @@ user-select: none;
   justify-content: space-between;
 }
 .instructions{
+  box-sizing: border-box;
+  margin-top: 5px;
   width: 24em;
   background-color: white;
-  margin-top: .25em;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 table{
   width: 24em;
 }
 .tableHead{
   background-color: white;
-
 }
 td{
   height: 2em;
   opacity: 0.9;
 }
 .defaultDeck{
-  background-color: #7F00FF;
-  color: white;
+
 }
 .vanilla{
   /*color: #ffb347;*/
@@ -114,7 +118,6 @@ td{
 }
 .incursion{
   background-color: #120A8F;
-  color: white;
 }
 .alliance{
 background-color: #ff9933;
@@ -130,48 +133,49 @@ background-color: 	#6B8E23;
   font-weight: bold;
 }
 .Attack{
-  background-color: #FF3232;
+  color: #CC0000;
 }
 .Negotiate{
-  background-color: #7CFC00;
+  color: #32CD32;
 }
 .Morph{
-  background-color: #CC0000;
-  color: #99FF00;
+  color: #CC0000;
+}
+.Morph:hover{
+  color: #32CD32;
 }
 .Retreat{
-  background-color: #00FFFF;
+  color: #00FFFF;
 }
 .Reinforcement{
-  background-color: 	#FF1493;
+  color: 	#FF1493;
 }
 .Rift{
-  background-color: #DCDCDC;
+  color: grey;
 }
 .Kicker{
-  background-color: #FFDE00;
+  color: #FFDE00;
 }
 .Artifact{
-  background-color: #1E90FF;
+  color: #1E90FF;
 }
 .Intimidate{
-  background-color: #696969;
+  color: black;
 }
-.Co{
+
+/*.Co{
   background-color: #ffb347;
   color: #7F00FF;
 }
 .Re{
   background-color: #120A8F;
   color: white;
-}
-.allCards{
-  background-color: lightgrey;
-}
-.encounterOnly{
+}*/
+
+/*.encounterOnly{
   color: #7CFC00;
   background-color: #FF3232;
-}
+}*/
 .whiteBack{
   background-color: white;
 }
