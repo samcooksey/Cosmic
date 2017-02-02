@@ -12,68 +12,68 @@
           <div>
             <div class="expansions">
               <div class="topHalf">
-                <div class="expansion" ng-click="CC.vanilla = !CC.vanilla; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.vanilla}">Base Game</div>
-                <div class="expansion" ng-click="CC.incursion = !CC.incursion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.incursion}">Incursion</div>
+                <div class="expansion vanilla" ng-click="CC.vanilla = !CC.vanilla; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.vanilla}">Base Game</div>
+                <div class="expansion incursion" ng-click="CC.incursion = !CC.incursion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.incursion}">Incursion</div>
               </div>
               <div class="topHalf">
-                <div class="expansion" ng-click="CC.alliance = !CC.alliance; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.alliance}">Alliance</div>
-                <div class="expansion" ng-click="CC.dominion = !CC.dominion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.dominion}">Dominion</div>
+                <div class="expansion alliance" ng-click="CC.alliance = !CC.alliance; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.alliance}">Alliance</div>
+                <div class="expansion dominion" ng-click="CC.dominion = !CC.dominion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.dominion}">Dominion</div>
               </div>
             </div>
             <div class="sets4">
               <div class="setOfFour">
-                <div class="cardType4" ng-click="CC.allCards(); CC.allCardsBool = true" ng-class="{highlighted: CC.allCardsBool}">
+                <div class="cardType4 allCards" ng-click="CC.allCards(); CC.allCardsBool = true" ng-class="{highlighted: CC.allCardsBool}">
                   All <br />Cards
                 </div>
-                <div class="cardType4" ng-click="CC.allEncounter(); CC.allEncounterBool = true" ng-class="{highlighted: CC.allEncounterBool}">
+                <div class="cardType4 encounterOnly" ng-click="CC.allEncounter(); CC.allEncounterBool = true" ng-class="{highlighted: CC.allEncounterBool}">
                   Encounter <br />Only
                 </div>
-                <div class="cardType4" ng-click="CC.allCosmic(); CC.allCosmicBool = true" ng-class="{highlighted: CC.allCosmicBool}">
+                <div class="cardType4 Co" ng-click="CC.allCosmic(); CC.allCosmicBool = true" ng-class="{highlighted: CC.allCosmicBool}">
                   Cosmic <br />Deck Only
                 </div>
-                <div class="cardType4" ng-click="CC.allReward(); CC.allRewardBool = true" ng-class="{highlighted: CC.allRewardBool}">
+                <div class="cardType4 Re" ng-click="CC.allReward(); CC.allRewardBool = true" ng-class="{highlighted: CC.allRewardBool}">
                   Reward <br />Deck Only
                 </div>
               </div>
             </div>
             <div class="sets">
               <div class="setOfThree">
-                <div class="cardType" ng-click="CC.attack =!CC.attack" ng-class="{highlighted: CC.attack}">
+                <div class="cardType Attack" ng-click="CC.attack =!CC.attack" ng-class="{highlighted: CC.attack}">
                   Attack
                 </div>
-                <div class="cardType" ng-click="CC.negotiate =!CC.negotiate" ng-class="{highlighted: CC.negotiate}">
+                <div class="cardType Negotiate" ng-click="CC.negotiate =!CC.negotiate" ng-class="{highlighted: CC.negotiate}">
                   Negotiate
                 </div>
-                <div class="cardType" ng-click="CC.morph =!CC.morph" ng-class="{highlighted: CC.morph}">
+                <div class="cardType Morph" ng-click="CC.morph =!CC.morph" ng-class="{highlighted: CC.morph}">
                   Morph
                 </div>
               </div>
               <div class="setOfThree">
-                <div class="cardType" ng-click="CC.retreat =!CC.retreat" ng-class="{highlighted: CC.retreat}">
+                <div class="cardType Retreat" ng-click="CC.retreat =!CC.retreat" ng-class="{highlighted: CC.retreat}">
                   Retreat
                 </div>
-                <div class="cardType" ng-click="CC.reinforcement =!CC.reinforcement" ng-class="{highlighted: CC.reinforcement}">
+                <div class="cardType Reinforcement" ng-click="CC.reinforcement =!CC.reinforcement" ng-class="{highlighted: CC.reinforcement}">
                   Reinforcement
                 </div>
-                <div class="cardType" ng-click="CC.rift =!CC.rift" ng-class="{highlighted: CC.rift}">
+                <div class="cardType Rift" ng-click="CC.rift =!CC.rift" ng-class="{highlighted: CC.rift}">
                   Rift
                 </div>
               </div>
               <div class="setOfThree">
-                <div class="cardType" ng-click="CC.kicker =!CC.kicker" ng-class="{highlighted: CC.kicker}">
+                <div class="cardType Kicker" ng-click="CC.kicker =!CC.kicker" ng-class="{highlighted: CC.kicker}">
                   Kicker
                 </div>
-                <div class="cardType" ng-click="CC.artifact =!CC.artifact" ng-class="{highlighted: CC.artifact}">
+                <div class="cardType Artifact" ng-click="CC.artifact =!CC.artifact" ng-class="{highlighted: CC.artifact}">
                   Artifact
                 </div>
-                <div class="cardType" ng-click="CC.intimidate =!CC.intimidate" ng-class="{highlighted: CC.intimidate}">
+                <div class="cardType Intimidate" ng-click="CC.intimidate =!CC.intimidate" ng-class="{highlighted: CC.intimidate}">
                   Intimidate
                 </div>
               </div>
             </div>
 
           <table class="card">
-            <tr>
+            <tr class="tableHead">
               <th>
                 Type
               </th>
@@ -87,21 +87,29 @@
                 Deck
               </th>
             </tr>
-            <tr ng-repeat="card in CC.decks | orderBy: ['type', 'value']" ng-show="CC[card.type.toLowerCase()]===true && (CC[card.deck.toLowerCase()]===true || ( card.deck !== 'Cosmic' && card.deck !== 'Reward'));" id="index{{$index}}" ng-click="CC.showDetails($index)">
-              <td class="cardQuality">
+            <tr ng-repeat-start="card in CC.decks | orderBy: ['type', 'value']" ng-show="CC[card.type.toLowerCase()]===true && (CC[card.deck.toLowerCase()]===true || ( card.deck !== 'Cosmic' && card.deck !== 'Reward'));" ng-init="CC['description' + $index] = false" ng-click="CC['description' + $index] = !CC['description' + $index]" ng-class="{highlightedCard: CC['description' + $index]}">
+              <td class="cardQuality {{card.type}}">
                 {{card.type}}
               </td>
-              <td class="cardQuality">
+              <td class="cardQuality whiteBack">
                 {{card.value}}
               </td>
-              <td class="cardQuality">
+              <td class="cardQuality whiteBack">
                 {{card.quantity}}
               </td>
-              <td class="cardQuality">
+              <td class="cardQuality defaultDeck {{card.deck.slice(0,2)}}">
                 {{card.deck}}
               </td>
             </tr>
+            <tr ng-repeat-end>
+              <td colspan="4" class="cardQuality {{card.type}}" ng-show="CC['description' + $index]" ng-click="CC['description' + $index] = false;">
+                {{card.description}}
+              </td>
+            </tr>
           </table>
+          <div class="instructions">
+            INSTRUCTIONS: Select the expansions you are using at the top of the page to display all available cards. You can also choose to display encounter cards only, display a specific deck, or you can show/hide specific card types. Click on any card to show the description.
+          </div>
           </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>

@@ -3,8 +3,8 @@ app.controller('cosmicController', ['expansions', function(expansions){
   var vm = this;
   var ex = expansions;
 
-  vm.decks = ex.vanilla;
-  vm.vanilla = true;
+  vm.decks = [];
+  vm.vanilla = false;
   vm.incursion = false;
   vm.alliance = false;
   vm.dominion = false;
@@ -133,6 +133,6 @@ app.controller('cosmicController', ['expansions', function(expansions){
     vm.allCosmicBool = false;
   }
   vm.showDetails = function(index){
-    
+
   }
 }])
