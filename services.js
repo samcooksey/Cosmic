@@ -112,12 +112,12 @@ app.service('expansions', [function(){
     {expansion: 'Dominion', deck: 'Reward', type: 'Artifact', value: 'Rebirth', quantity: 1, description: 'Regains Home Colonies. Play at the start of any encounter and choose a player (even yourself). That player may place one or more of his or her ships, from his or her colonies, onto any planet(s) in his or her home system.'},
     {expansion: 'Dominion', deck: 'Reward', type: 'Artifact', value: 'Victory Boon', quantity: 1, description: 'Rewards Defender. Play after the defense wins an encounter. The defense receives rewards equal to the number of his or her ships in the encounter.'}
   ];
-  sv.decksArray = [sv.vanilla, sv.incursion, sv.alliance, sv.dominion];
-  sv.decks = [];
-  for(var i = 0; i < sv.decksArray.length; i++){
-    for(var j = 0; j < sv.decksArray[i].length; j++){
-      sv.decks.push(sv.decksArray[i][j]);
-    }
-  }
+  // sv.decksArray = [sv.vanilla, sv.incursion, sv.alliance, sv.dominion];
+  // sv.decks = [];
+  // for(var i = 0; i < sv.decksArray.length; i++){
+  //   for(var j = 0; j < sv.decksArray[i].length; j++){
+  //     sv.decks.push(sv.decksArray[i][j]);
+  //   }
+  // }
 
 }])

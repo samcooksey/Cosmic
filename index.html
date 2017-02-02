@@ -7,85 +7,102 @@
   </head>
   <body ng-app="cosmicApp">
     <div ng-controller="cosmicController as CC">
-      <label>Vanilla<input type="checkbox" ng-model="CC.vanilla" /></label>
-      <label>Incursion<input type="checkbox" ng-model="CC.incursion" /></label>
-      <label>Alliance<input type="checkbox" ng-model="CC.alliance" /></label>
-      <label>Dominion<input type="checkbox" ng-model="CC.dominion" /></label>
-        <div>
-        <div class="cardType" ng-click="CC.attack =!CC.attack">
-          Attack
-        </div>
-        <div class="cardType" ng-click="CC.negotiate =!CC.negotiate">
-          Negotiate
-        </div>
-        <div class="cardType" ng-click="CC.morph =!CC.morph">
-          Morph
-        </div>
-        <div class="cardType" ng-click="CC.retreat =!CC.retreat">
-          Retreat
-        </div>
-        <div class="cardType" ng-click="CC.reinforcement =!CC.reinforcement">
-          Reinforcement
-        </div>
-        <div class="cardType" ng-click="CC.rift =!CC.rift">
-          Rift
-        </div>
-        <div class="cardType" ng-click="CC.kicker =!CC.kicker">
-          Kicker
-        </div>
-        <div class="cardType" ng-click="CC.artifact =!CC.artifact">
-          Artifact
-        </div>
-        <div class="cardType" ng-click="CC.intimidate =!CC.intimidate">
-          Intimidate
-        </div>
+
+        <div class="mainBody">
+          <div>
+            <div class="expansions">
+              <div class="topHalf">
+                <div class="expansion" ng-click="CC.vanilla = !CC.vanilla; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.vanilla}">Base Game</div>
+                <div class="expansion" ng-click="CC.incursion = !CC.incursion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.incursion}">Incursion</div>
+              </div>
+              <div class="topHalf">
+                <div class="expansion" ng-click="CC.alliance = !CC.alliance; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.alliance}">Alliance</div>
+                <div class="expansion" ng-click="CC.dominion = !CC.dominion; CC.updateSet(CC.vanilla, CC.incursion, CC.alliance, CC.dominion)" ng-class="{highlighted: CC.dominion}">Dominion</div>
+              </div>
+            </div>
+            <div class="sets4">
+              <div class="setOfFour">
+                <div class="cardType4" ng-click="CC.allCards(); CC.allCardsBool = true" ng-class="{highlighted: CC.allCardsBool}">
+                  All <br />Cards
+                </div>
+                <div class="cardType4" ng-click="CC.allEncounter(); CC.allEncounterBool = true" ng-class="{highlighted: CC.allEncounterBool}">
+                  Encounter <br />Only
+                </div>
+                <div class="cardType4" ng-click="CC.allCosmic(); CC.allCosmicBool = true" ng-class="{highlighted: CC.allCosmicBool}">
+                  Cosmic <br />Deck Only
+                </div>
+                <div class="cardType4" ng-click="CC.allReward(); CC.allRewardBool = true" ng-class="{highlighted: CC.allRewardBool}">
+                  Reward <br />Deck Only
+                </div>
+              </div>
+            </div>
+            <div class="sets">
+              <div class="setOfThree">
+                <div class="cardType" ng-click="CC.attack =!CC.attack" ng-class="{highlighted: CC.attack}">
+                  Attack
+                </div>
+                <div class="cardType" ng-click="CC.negotiate =!CC.negotiate" ng-class="{highlighted: CC.negotiate}">
+                  Negotiate
+                </div>
+                <div class="cardType" ng-click="CC.morph =!CC.morph" ng-class="{highlighted: CC.morph}">
+                  Morph
+                </div>
+              </div>
+              <div class="setOfThree">
+                <div class="cardType" ng-click="CC.retreat =!CC.retreat" ng-class="{highlighted: CC.retreat}">
+                  Retreat
+                </div>
+                <div class="cardType" ng-click="CC.reinforcement =!CC.reinforcement" ng-class="{highlighted: CC.reinforcement}">
+                  Reinforcement
+                </div>
+                <div class="cardType" ng-click="CC.rift =!CC.rift" ng-class="{highlighted: CC.rift}">
+                  Rift
+                </div>
+              </div>
+              <div class="setOfThree">
+                <div class="cardType" ng-click="CC.kicker =!CC.kicker" ng-class="{highlighted: CC.kicker}">
+                  Kicker
+                </div>
+                <div class="cardType" ng-click="CC.artifact =!CC.artifact" ng-class="{highlighted: CC.artifact}">
+                  Artifact
+                </div>
+                <div class="cardType" ng-click="CC.intimidate =!CC.intimidate" ng-class="{highlighted: CC.intimidate}">
+                  Intimidate
+                </div>
+              </div>
+            </div>
+
+          <table class="card">
+            <tr>
+              <th>
+                Type
+              </th>
+              <th>
+                Value
+              </th>
+              <th>
+                Count
+              </th>
+              <th>
+                Deck
+              </th>
+            </tr>
+            <tr ng-repeat="card in CC.decks | orderBy: ['type', 'value']" ng-show="CC[card.type.toLowerCase()]===true && (CC[card.deck.toLowerCase()]===true || ( card.deck !== 'Cosmic' && card.deck !== 'Reward'));" id="index{{$index}}" ng-click="CC.showDetails($index)">
+              <td class="cardQuality">
+                {{card.type}}
+              </td>
+              <td class="cardQuality">
+                {{card.value}}
+              </td>
+              <td class="cardQuality">
+                {{card.quantity}}
+              </td>
+              <td class="cardQuality">
+                {{card.deck}}
+              </td>
+            </tr>
+          </table>
           </div>
-        <!-- <div ng-repeat="card in CC.decks | orderBy:['type', 'value']" ng-show="CC[card.expansion.toLowerCase()]===true && CC[card.type.toLowerCase()]===true">
-          <h3>{{card.type}}</h3>
-          <h1>{{card.value}}</h1>
-        </div> -->
-        <div ng-show="CC.attack" class="typeTable">
-          <h1>Attack</h1>
-          <table>
-            <tr>
-              <th>
-                Value
-              </th>
-              <th>
-                Quantity
-              </th>
-            </tr>
-            <tr ng-repeat="card in CC.decks | orderBy:'value'" ng-show="CC[card.expansion.toLowerCase()]===true && card.type==='Attack'">
-              <td>
-                {{card.value}}
-              </td>
-              <td>
-                {{card.quantity}}
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div ng-show="CC.negotiate" class="typeTable">
-          <h1>Negotiate</h1>
-          <table>
-            <tr>
-              <th>
-                Value
-              </th>
-              <th>
-                Quantity
-              </th>
-            </tr>
-            <tr ng-repeat="card in CC.decks | orderBy:'value'" ng-show="CC[card.expansion.toLowerCase()]===true && card.type==='Negotiate'">
-              <td>
-                {{card.value}}
-              </td>
-              <td>
-                {{card.quantity}}
-              </td>
-            </tr>
-          </table>
-        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="app.js" type="text/javascript"></script>

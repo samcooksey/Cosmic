@@ -1,8 +1,75 @@
 .cardType{
+  text-align: center;
   display:inline-block;
-  margin: 10px;
+  width: 8em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
-.typeTable{
+.cardType4{
+  text-align: center;
   display:inline-block;
-  margin: 10px;
+  width: 6em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+.sets{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  width: 24em;
+}
+.sets4{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  width: 24em;
+}
+.setOfThree{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.setOfFour{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.expansions{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+  width: 24em;
+
+}
+.expansion{
+  display:inline-block;
+  width: 12em;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  text-align: center;
+  font-size: 1em;
+}
+.card{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.cardQuality{
+  border: 1px solid black;
+
+}
+.mainBody{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topHalf{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+table{
+  width: 24em;
+}
+.highlighted{
+  background-color: #EE82EE;
 }
